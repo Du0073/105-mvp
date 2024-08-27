@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get("/",controllerEstudiante.getEstudiantes)
 router.get("/:id", ()=> console.log("leer estudiante usando id"))
-router.post("/", controllerEstudiante.create)//crear estudiante
+router.post("/", controllerEstudiante.create)
 router.patch("/",()=>console.log("editar estudiante"))
 router.delete("/",()=>console.log("eliminar estudiante"))
 
