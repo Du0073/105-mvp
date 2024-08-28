@@ -5,7 +5,7 @@ const controllerEstudiante = {
   create: async (req,res) => {
     try{
       console.log(req.body)
-      await Estudiantes.create({
+      await Estudiante.create({
         nombre: req.body.nombre,
         materias: req.body.materias,
         asistencia: req.body.asistencia,
@@ -29,6 +29,20 @@ const controllerEstudiante = {
       const {id} = req.params
       const estudiante = await Estudiante.findById(id)
       res.json(estudiante).status(200)
+    }catch(error){
+      return res.status(500).send(error.message)
+    }
+  },
+  upDateEstudiantesPorId: async (req,res) => {
+    try{
+      const {id} = req.params
+      await Estudiante.findByIdAndUpdate(id,{
+        nombre: req.body.nombre,
+        materias: req.body.materias,
+        asistencia: req.body.asistencia,
+        tareas: req.body.tareas
+      })
+      res.status(200).send("Estudiante actualizado")
     }catch(error){
       return res.status(500).send(error.message)
     }

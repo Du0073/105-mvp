@@ -16,9 +16,9 @@ app.use(express.json())
 app.use("/api/estudiante",routerEstudiantes)
 
 app.get("/",(req,res)=>{
-    res.send("Probando el servidor")
+  res.send("Probando el servidor")
 })
 
 app.listen(port,()=>{
-    console.log(`Escuchando el ${port}`)
+  console.log(`Escuchando el ${port}`)
 })
